@@ -12,7 +12,7 @@ struct ethernet_header {
     uint8_t len;
     char dest_mac[6];
     char src_mac[6];
-    char type[2];
+    uint16_t type;
 };
 
 struct ip_header {

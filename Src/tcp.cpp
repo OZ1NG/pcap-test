@@ -32,7 +32,9 @@ void Tcp::get_ethernet(){
     // src_mac
     memcpy(this->tcps.teth.src_mac, this->packet_data+6, 6);
     // type
-    memcpy(this->tcps.teth.type, this->packet_data+12, 2);
+    memcpy(&this->tcps.teth.type, this->packet_data+12, 2);
+    this->tcps.teth.type = ntohs(this->tcps.teth.type); // change byte order
+
 }
 
 void Tcp::get_ip(){

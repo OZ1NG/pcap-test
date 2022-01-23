@@ -58,8 +58,10 @@ int main(int argc, char* argv[]) {
         puts("\n");
         */
         Tcp tcp((unsigned char *)packet);
-        if(tcp.tcps.tip.protocol == TCP){
-            tcp.print();
+        if(tcp.tcps.teth.type == 0x0800){     // IPv4
+            if(tcp.tcps.tip.protocol == TCP){ // TCP
+                tcp.print();
+            }
         }
 	}
 
